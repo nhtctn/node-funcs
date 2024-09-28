@@ -1,13 +1,18 @@
 const fs = require('fs')
 const path = require('path')
+const { getAbsPath, initParents } = require('./pathHandler')
 const fileNameHandler = require('./fileNameHandler')
 
-const fileMenager = outputFolder => {
+const fileMenager = (...pathVars) => {
+  const outputFolder = getAbsPath(...pathVars)
+  initParents(outputFolder)
+
   const initFolder = () => {
     if (!fs.existsSync(outputFolder)) {
       fs.mkdirSync(outputFolder)
     }
   }
+
   initFolder() // initially needed
 
   const resetFolder = () => {
@@ -29,7 +34,7 @@ const fileMenager = outputFolder => {
     fs.writeFileSync(filePath, file)
   }
 
-  return { createFile, resetFolder }
+  return { initFolder, resetFolder, createFile }
 }
 
 module.exports = fileMenager

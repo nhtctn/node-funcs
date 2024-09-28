@@ -15,7 +15,6 @@ const fileNameHandler = (filePath) => {
     const newName = `${originName} (${count})`
     const newPath = path.join(dir, newName + ext)
 
-    // console.log(newPath)
     return fileNameHandler(newPath)
   } else {
     return filePath

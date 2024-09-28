@@ -1,6 +1,14 @@
 const fs = require('fs')
+const path = require('path')
+const { getAbsPath, initParents } = require('./pathHandler')
 
-const logger = (logsPath) => {
+const logger = (...pathVars) => {
+  const logsPath = getAbsPath(...pathVars)
+  if (path.parse(logsPath).ext !== '.json') {
+    throw new Error('Path must point to a json file.')
+  }
+  initParents(logsPath)
+
   const setLogs = (value) => {
     fs.writeFileSync(logsPath, JSON.stringify(value, null, 2))
   }
