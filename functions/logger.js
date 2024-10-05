@@ -1,6 +1,6 @@
 const fs = require('fs')
 const path = require('path')
-const { getAbsPath, initParents } = require('./pathHandler')
+const { getAbsPath, initParents } = require('./pathHandlers')
 
 const logger = (...pathVars) => {
   const logsPath = getAbsPath(...pathVars)

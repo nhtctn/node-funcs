@@ -3,7 +3,8 @@ const fetchData = require('./functions/fetchData')
 const fileMenager = require('./functions/fileMenager')
 const fileNameHandler = require('./functions/fileNameHandler')
 const logger = require('./functions/logger')
-const pathHandler = require('./functions/pathHandler')
+const parseEditors = require('./functions/parse-editors')
+const pathHandlers = require('./functions/pathHandlers')
 const sleep = require('./functions/sleep')
 
 module.exports = {
@@ -12,6 +13,7 @@ module.exports = {
   fileMenager,
   fileNameHandler,
   logger,
-  pathHandler,
+  parseEditors,
+  pathHandlers,
   sleep,
 }
