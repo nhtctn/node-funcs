@@ -101,6 +101,10 @@ const logger = (...pathVars) => {
     }
   }
 
+  const deleteLogFile = () => {
+    fs.unlinkSync(logsPath)
+  }
+
   initLogs()
 
   return {
@@ -114,6 +118,7 @@ const logger = (...pathVars) => {
     setToLog,
     pushToLogItem,
     removeFromLog,
+    deleteLogFile,
   }
 }
 
