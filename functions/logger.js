@@ -60,8 +60,10 @@ const logger = (...pathVars) => {
 
   const removeFromLog = (name, key) => {
     let log = getLog(name)
-    delete log[key]
-    setLog(name, log)
+    if (log && log[key]) {
+      delete log[key]
+      setLog(name, log)
+    }
   }
 
   const initLogs = (...names) => {

@@ -1,6 +1,6 @@
 {
   "name": "node-funcs",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "main": "index.js",
   "description": "general purpose functions",
   "author": "nht.ctn",
